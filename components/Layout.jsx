@@ -4,12 +4,13 @@ import Link from 'next/link';
 export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Navbar */}
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/">
-                <a className="text-2xl font-semibold text-indigo-600">Phloe</a>
+                <a className="text-2xl font-semibold text-indigo-600">Say Blake</a>
               </Link>
               <div className="hidden md:flex space-x-4 ml-8">
                 <Link href="/planner/projects"><a className="px-3 py-2 rounded-md hover:bg-indigo-50">Projekty</a></Link>
@@ -23,14 +24,16 @@ export default function Layout({ children }) {
           </div>
         </div>
       </nav>
+      {/* Main content */}
       <main className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {children}
         </div>
       </main>
+      {/* Footer */}
       <footer className="bg-white border-t mt-12">
         <div className="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-gray-500">
-          © 2025 Phloe. Wszelkie prawa zastrzeżone.
+          © 2025 Say Blake. Wszelkie prawa zastrzeżone.
         </div>
       </footer>
     </div>
