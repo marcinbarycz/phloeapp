@@ -4,7 +4,6 @@ import Link from 'next/link';
 export default function AdminLayout({ children }) {
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
       <aside className="w-64 bg-gray-800 text-white p-6">
         <h2 className="text-xl font-bold mb-6">Panel Admina</h2>
         <nav className="space-y-2">
@@ -16,7 +15,6 @@ export default function AdminLayout({ children }) {
           <Link href="/admin/logs"><a className="block p-2 hover:bg-gray-700 rounded">Logi</a></Link>
         </nav>
       </aside>
-      {/* Main Content */}
       <main className="flex-1 bg-gray-50 p-6">
         {children}
       </main>

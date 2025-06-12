@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import Router from 'next/router';
 
-export default function Login() {
+export default function AdminLogin() {
   const [form, setForm] = useState({ email:'', password:'' });
-  const submit = e => { e.preventDefault(); /* TODO auth */ };
+  const submit = e => {
+    e.preventDefault();
+    if (form.email==='marcin.barycz@phloe.pl' && form.password==='K@ja17112022') {
+      Router.push('/admin');
+    } else alert('Niepoprawne dane');
+  };
   return (
     <div className="max-w-md mx-auto py-20">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Logowanie</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">Admin Login</h2>
       <form onSubmit={submit} className="space-y-4">
         <input type="email" required placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="w-full p-2 border rounded"/>
         <input type="password" required placeholder="Hasło" value={form.password} onChange={e=>setForm({...form,password:e.target.value})} className="w-full p-2 border rounded"/>
