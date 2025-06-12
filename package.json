@@ -1,6 +1,6 @@
 {
-  "name": "phloe-seating-app",
-  "version": "2.0.0",
+  "name": "phloe-seating-app-full",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
