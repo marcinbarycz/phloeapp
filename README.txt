@@ -1,12 +1,12 @@
-PHLOE - SEATING APP (offline lokalna wersja)
+PHLOE - WERSJA 2: Logowanie, rejestracja, profil plannera
 
-Kroki uruchomienia (MacOS):
+Jak uruchomić (na MacOS):
 1. Wymagane:
    - Node.js: https://nodejs.org
    - Terminal
 
 2. Rozpakuj folder:
-   cd phloe-seating-app
+   cd phloe-seating-app-v2
 
 3. Zainstaluj zależności:
    npm install
@@ -14,5 +14,5 @@ Kroki uruchomienia (MacOS):
 4. Uruchom lokalnie:
    npm run dev
 
-5. Otwórz w przeglądarce:
+5. Otwórz przeglądarkę:
    http://localhost:3000
