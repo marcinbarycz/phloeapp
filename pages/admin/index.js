@@ -1,27 +1,42 @@
 import { useState } from 'react';
-let demoUsers = [
-  { id: 1, email: 'planer1@example.com', name: 'Planer A', status: 'pending' },
-  { id: 2, email: 'planer2@example.com', name: 'Planer B', status: 'active' },
-];
+
 export default function AdminPanel() {
-  const [users, setUsers] = useState(demoUsers);
-  const toggleStatus = id => {
-    setUsers(users.map(u =>
-      u.id===id ? { ...u, status: u.status==='active'?'blocked':'active' } : u
-    ));
+  const [users, setUsers] = useState([
+    { id:1, name:'Planer A', email:'planerA@example.com', status:'pending'},
+    { id:2, name:'Planer B', email:'planerB@example.com', status:'active'},
+  ]);
+
+  const toggle = id => {
+    setUsers(users.map(u=>{
+      if(u.id===id) {
+        let status = u.status==='pending'?'active':'active'===u.status?'blocked':'active';
+        return {...u, status};
+      }
+      return u;
+    }));
   };
+
   return (
-    <div style={{ padding:'2rem', fontFamily:'Arial' }}>
-      <h1>Panel Administratora</h1>
-      <table style={{ width:'100%', borderCollapse:'collapse' }}>
-        <thead><tr><th>Email</th><th>Imię</th><th>Status</th><th>Akcja</th></tr></thead>
+    <div className="max-w-3xl mx-auto space-y-4">
+      <h2 className="text-2xl font-semibold">Panel Admina</h2>
+      <table className="w-full border-collapse border">
+        <thead>
+          <tr>
+            <th className="border p-2">Imię</th>
+            <th className="border p-2">Email</th>
+            <th className="border p-2">Status</th>
+            <th className="border p-2">Akcja</th>
+          </tr>
+        </thead>
         <tbody>
           {users.map(u=>(
             <tr key={u.id}>
-              <td>{u.email}</td><td>{u.name}</td><td>{u.status}</td>
-              <td>
-                <button onClick={()=>toggleStatus(u.id)}>
-                  {u.status==='pending'?'Aktywuj': u.status==='active'?'Zablokuj':'Aktywuj ponownie'}
+              <td className="border p-2">{u.name}</td>
+              <td className="border p-2">{u.email}</td>
+              <td className="border p-2">{u.status}</td>
+              <td className="border p-2">
+                <button onClick={()=>toggle(u.id)} className="px-2 py-1 bg-indigo-600 text-white rounded">
+                  {u.status==='pending'?'Aktywuj':u.status==='active'?'Zablokuj':'Aktywuj ponownie'}
                 </button>
               </td>
             </tr>
@@ -29,5 +44,5 @@ export default function AdminPanel() {
         </tbody>
       </table>
     </div>
-  );
+);
 }
